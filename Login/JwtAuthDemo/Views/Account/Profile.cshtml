@@ -2,19 +2,22 @@
     ViewData["Title"] = "Profile";
 }
 
-<h2>Your Profile</h2>
-<div class="profile-container">
-    <div class="profile-info">
-        <p><strong>Username:</strong> <span id="profile-username">@Context.Session.GetString("Username")</span></p>
-        <p><strong>First Name:</strong> <span id="profile-firstname">@Context.Session.GetString("FirstName")</span></p>
-        <p><strong>Last Name:</strong> <span id="profile-lastname">@Context.Session.GetString("LastName")</span></p>
-        <p><strong>Address:</strong> <span id="profile-address">@Context.Session.GetString("Address")</span></p>
-        <p><strong>Phone:</strong> <span id="profile-phone">@Context.Session.GetString("Phone")</span></p>
-    </div>
-</div>
+<div class="main-content">
+    <h2>Your Profile</h2>
 
-<div class="actions">
-    <button class="btn btn-primary" onclick="openPopup()">Update Profile</button>
+    <div class="profile-container">
+        <div class="profile-info">
+            <p><strong>Username:</strong> <span id="profile-username">@Context.Session.GetString("Username")</span></p>
+            <p><strong>First Name:</strong> <span id="profile-firstname">@Context.Session.GetString("FirstName")</span></p>
+            <p><strong>Last Name:</strong> <span id="profile-lastname">@Context.Session.GetString("LastName")</span></p>
+            <p><strong>Address:</strong> <span id="profile-address">@Context.Session.GetString("Address")</span></p>
+            <p><strong>Phone:</strong> <span id="profile-phone">@Context.Session.GetString("Phone")</span></p>
+        </div>
+
+        <div class="actions">
+            <button class="btn btn-primary" onclick="openPopup()">Update Profile</button>
+        </div>
+    </div>
 </div>
 
 <!-- Pop-up Form -->
@@ -23,16 +26,16 @@
         <h2>Update Profile</h2>
         <label>First Name:</label>
         <input type="text" id="new-firstname" placeholder="Enter new first name">
-        
+
         <label>Last Name:</label>
         <input type="text" id="new-lastname" placeholder="Enter new last name">
-        
+
         <label>Address:</label>
         <input type="text" id="new-address" placeholder="Enter new address">
-        
+
         <label>Phone:</label>
         <input type="text" id="new-phone" placeholder="Enter new phone">
-        
+
         <button onclick="updateProfile()">Save Changes</button>
         <button class="close-btn" onclick="closePopup()">Cancel</button>
     </div>
@@ -41,3 +44,43 @@
 @section Scripts {
     <script src="~/js/profile.js"></script>
 }
+
+<style>
+    .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full height of the screen */
+    margin-left: 80px; /* To prevent overlap with sidebar if you have one */
+    text-align: center;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-info {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+}
+
+.actions {
+    margin-top: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+</style>
